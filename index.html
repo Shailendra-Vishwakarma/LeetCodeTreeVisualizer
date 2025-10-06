@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Tree Visualizer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .inputContainer{
+            padding: 10px;
+        }
+
+        .buttons {
+            height: 30px;
+            width: 80px;
+            margin-left: 30px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+        
+        }
+
+        textarea {
+            resize: none;
+            width: 15rem;
+            height: 7rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inputContainer">
+        <textarea id="inputArea" type="text" placeholder="Enter numbers or null separated by ,"></textarea>
+    </div>
+    <div>
+        <button class="buttons" id="applyBtn">Apply</button>
+        <button class="buttons" id="clearBtn">Clear</button>
+    </div>
+    <canvas></canvas>
+    <script type="module" src="drawBinaryTree.js"></script>
+</body>
+
+</html>

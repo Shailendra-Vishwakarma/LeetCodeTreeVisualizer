@@ -67,7 +67,8 @@ function recursivelyDrawNodes(root, canvasElement, currentLevel, horizontalConfi
 }
 
 export function buildBinaryTree(arr) {
-
+    clearCanvas();
+    
     if (!arr.length) return null;
    
     const nodes = arr.map(value => value === null ? null : new BinaryTreeNode(value));
@@ -76,8 +77,12 @@ export function buildBinaryTree(arr) {
         if (nodes[i] !== null) {
             const leftIndex = 2 * i + 1;
             const rightIndex = 2 * i + 2;
-            if (leftIndex < nodes.length) nodes[i].setLeft(nodes[leftIndex]);
-            if (rightIndex < nodes.length) nodes[i].setRight(nodes[rightIndex]);
+            if (leftIndex < nodes.length){
+                nodes[i].setLeft(nodes[leftIndex]);
+            }
+            if (rightIndex < nodes.length) {
+                nodes[i].setRight(nodes[rightIndex]);
+            }
         }
     }
     drawBinaryTree(nodes[0], canvas);
@@ -85,4 +90,7 @@ export function buildBinaryTree(arr) {
     return nodes[0];
 }
 
-
+export function clearCanvas(){
+    const ctx=canvas.getContext('2d');
+    ctx.clearRect(0,0,canvas.width, canvas.height);
+}

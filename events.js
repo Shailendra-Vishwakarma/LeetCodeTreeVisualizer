@@ -1,4 +1,4 @@
-import { buildBinaryTree } from './drawBinaryTree.js'
+import { buildBinaryTree, clearCanvas } from './drawBinaryTree.js'
 let textarea = document.querySelector('textarea');
 
 export function validInputChacker() {
@@ -48,18 +48,22 @@ function getInputAsArray() {
 
 const applyButton = document.querySelector('#applyBtn');
 const clearButton = document.querySelector('#clearBtn');
+
+let arr=[];
 applyButton.addEventListener('click', () => {
-    const arr = getInputAsArray();
+     arr = getInputAsArray();
     while (arr.length && arr[0] === null) {
         arr.shift();
     }
     const root = buildBinaryTree(arr);
-    // if (root) {
-    //     console.log("Tree root:", root);
-    //     console.log("Tree height:", root.getHeight());
-    // }
+
 });
 
 clearButton.addEventListener('click', () => {
     textarea.value = '';
+})
+
+
+window.addEventListener('resize',()=>{
+ buildBinaryTree(arr);
 })
